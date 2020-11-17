@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><ion-icon name="mail-sharp" color="primary"> </ion-icon> Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  <div *ngFor="let m of messages">
+    <ion-item [hidden]="pseudo===m.pseudo">      <ion-icon color="success" name="person" slot="start"></ion-icon><ion-label> {{m.pseudo}}</ion-label></ion-item>
+    <ion-item [hidden]="pseudo!=m.pseudo">      <ion-icon color="primary" name="person" slot="start"></ion-icon><ion-label> moi</ion-label></ion-item>
+      <ion-item> <ion-label>{{m.texte}}</ion-label>    <ion-label color="primary"><br>{{m.date | date: 'short' }}</ion-label>  </ion-item>
+   
+  
+    </div>
+  </ion-list>
+  <ion-infinite-scroll threshold="40px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+    
+  </ion-infinite-scroll>
+  <form (ngSubmit)="send()"  #myform="ngForm">
+  <ion-item>
+    <ion-textarea [(ngModel)]="message.texte" name="texte" placeholder="votre message ici..."></ion-textarea>
+    <ion-icon (click)="send()" name="paper-plane-sharp" color="primary" slot="end"></ion-icon>
+  </ion-item>
+  </form>
+</ion-content>
