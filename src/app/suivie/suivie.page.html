@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="globe-sharp" color="primary"> </ion-icon> Géolocalistion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Dérniére position de votre cas à suivre</ion-label>
+  </ion-item>
+  <ion-item style="cursor: pointer;" (click)="locatePosition()">
+    <ion-button fill="clear">
+      <ion-icon slot="start" name="map"></ion-icon>
+      Localiser
+    </ion-button>
+  </ion-item>
+  <div id="mapId" style="height: 400px; width: 100%;"></div>
+
+  <ion-item>
+    <ion-icon slot="start" name="locate"></ion-icon>
+    <ion-label position="stacked">suivez position</ion-label>
+    <ion-textarea
+      [(ngModel)]="address"
+      type="text"
+      style="margin-top: 20px;"
+    ></ion-textarea>
+  </ion-item>
+</ion-content>
