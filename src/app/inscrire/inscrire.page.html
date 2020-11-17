@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="adduser()"  #myform="ngForm">
+    
+      
+        <ion-item>
+          <ion-label position="floating">nom</ion-label>
+          <ion-input required   type="text" name="nom" #nom="ngModel"[(ngModel)]="user.nom"></ion-input>
+        </ion-item>
+     
+      
+        <ion-item>
+          <ion-label position="floating">Prenom</ion-label>
+          <ion-input required type="text" name="prenom" #prenom="ngModel"  [(ngModel)]="user.prenom"></ion-input>
+        </ion-item>
+     
+    
+    
+    
+      
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" #email="ngModel"[(ngModel)]="user.email"></ion-input>
+        </ion-item>
+     
+      
+        <ion-item>
+          <ion-label position="floating">Mot de passe</ion-label>
+          <ion-input required type="password" name="mdp" #mdp="ngModel" [(ngModel)]="user.mdp" ></ion-input>
+        </ion-item>
+     
+    
+    
+    
+    
+      
+        <ion-item>
+          <ion-label position="floating">Age</ion-label>
+          <ion-input required  name="age" #age="ngModel" [(ngModel)]="user.age" type="number" min="18"></ion-input>
+        </ion-item>
+     
+      
+        <ion-item>
+          <ion-label position="floating">Télephone</ion-label>
+          <ion-input required type="telephone" name="telephone" #telephone="ngModel" type="number" [(ngModel)]="user.telephone"></ion-input>
+        </ion-item>
+     
+    
+    
+    
+  
+  
+  <ion-item>
+    <ion-label>Sexe</ion-label>
+    <ion-select required name=sexe #sexe="ngModel" [(ngModel)]="user.sexe" placeholder="Choisir">
+      <ion-select-option value="Homme">Homme</ion-select-option>
+      <ion-select-option value="femme">Femme</ion-select-option>
+
+    </ion-select>
+  </ion-item>
+
+
+  
+    
+     
+   
+    
+      <ion-item>
+        <ion-button  [disabled]="!myform.valid" class="success" type="submit"  >Inscription</ion-button>
+
+      </ion-item>
+   
+    
+      <ion-item>
+   
+      </ion-item>
+   
+  
+  
+   
+    
+      <ion-item>
+        <a position="middle" href="folder">Déjà membre</a>
+
+      </ion-item>
+   
+    
+      <ion-item>
+   
+      </ion-item>
+   
+  
+  </form>
+</ion-content>
