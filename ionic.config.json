@@ -1,0 +1,8 @@
+{
+  "name": "medecin",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
